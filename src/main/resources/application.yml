@@ -3,3 +3,7 @@ spring.jpa:
 spring:
   jpa:
     show-sql: true
+
+server:
+  error:
+    include-stacktrace: never

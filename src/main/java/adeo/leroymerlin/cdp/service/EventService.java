@@ -1,5 +1,10 @@
-package adeo.leroymerlin.cdp;
+package adeo.leroymerlin.cdp.service;
 
+import adeo.leroymerlin.cdp.exception.ErrorMessages;
+import adeo.leroymerlin.cdp.model.Event;
+import adeo.leroymerlin.cdp.repository.EventRepository;
+import adeo.leroymerlin.cdp.exception.ResourceNotFoundException;
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,7 +22,11 @@ public class EventService {
         return eventRepository.findAll();
     }
 
+    @Transactional
     public void delete(Long id) {
+        if (eventRepository.findById(id).isEmpty()) {
+            throw new ResourceNotFoundException(String.format(ErrorMessages.EVENT_NOT_FOUND, id));
+        }
         eventRepository.deleteById(id);
     }
 

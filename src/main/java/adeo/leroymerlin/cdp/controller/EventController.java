@@ -1,5 +1,7 @@
-package adeo.leroymerlin.cdp;
+package adeo.leroymerlin.cdp.controller;
 
+import adeo.leroymerlin.cdp.model.Event;
+import adeo.leroymerlin.cdp.service.EventService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
