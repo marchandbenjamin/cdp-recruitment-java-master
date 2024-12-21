@@ -36,4 +36,11 @@ public class EventService {
 
         return events;
     }
+
+    public void updateEvent(Long id, Event newEventData) {
+        Event existingEvent = eventRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException(String.format(ErrorMessages.EVENT_NOT_FOUND, id)));
+
+        existingEvent.setComment(newEventData.getComment());
+        eventRepository.save(existingEvent);
+    }
 }
