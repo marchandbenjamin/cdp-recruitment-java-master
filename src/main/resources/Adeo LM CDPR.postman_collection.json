@@ -1,0 +1,104 @@
+{
+	"info": {
+		"_postman_id": "e7a7e113-ea5c-477c-9655-d1060ba9de05",
+		"name": "Adeo LM CDPR",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33470110"
+	},
+	"item": [
+		{
+			"name": "Find Event",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/events/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"events",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search Events",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/events/search/Wa",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"events",
+						"search",
+						"Wa"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Event",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/events/1000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"events",
+						"1000"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Event",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 1000,\r\n    \"title\": \"GrasPop Metal Meeting\",\r\n    \"imgUrl\": \"img/1000.jpeg\",\r\n    \"bands\": [\r\n        {\r\n            \"name\": \"Pink Floyd\",\r\n            \"members\": [\r\n                {\r\n                    \"name\": \"Queen Madeleine Taylor\"\r\n                },\r\n                {\r\n                    \"name\": \"Queen Frankie Gross (Fania)\"\r\n                },\r\n                {\r\n                    \"name\": \"Queen Genevieve Clark\"\r\n                },\r\n                {\r\n                    \"name\": \"Queen Veronica Graves\"\r\n                },\r\n                {\r\n                    \"name\": \"Queen Stacey ODoherty (Asya)\"\r\n                },\r\n                {\r\n                    \"name\": \"Queen Gertrude Hudson\"\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"name\": \"Rolling Stones\",\r\n            \"members\": [\r\n                {\r\n                    \"name\": \"Queen Talia Bush\"\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"name\": \"The Ramones\",\r\n            \"members\": [\r\n                {\r\n                    \"name\": \"Queen Haleema Poole\"\r\n                },\r\n                {\r\n                    \"name\": \"Queen Ava Dunlap\"\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"name\": \"Guns n roses\",\r\n            \"members\": [\r\n                {\r\n                    \"name\": \"Queen Jasmine Collier\"\r\n                },\r\n                {\r\n                    \"name\": \"Queen Daisy Burke\"\r\n                },\r\n                {\r\n                    \"name\": \"Queen Aaliyah York\"\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"name\": \"Metallica\",\r\n            \"members\": [\r\n                {\r\n                    \"name\": \"Queen Katy Stone\"\r\n                },\r\n                {\r\n                    \"name\": \"Queen Anika Walsh\"\r\n                },\r\n                {\r\n                    \"name\": \"Queen Aliyah Jarvis\"\r\n                },\r\n                {\r\n                    \"name\": \"Queen Constance Carroll\"\r\n                }\r\n            ]\r\n        }\r\n    ],\r\n    \"nbStars\": null,\r\n    \"comment\": \"Ceci est un commentaire\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/events/1000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"events",
+						"1000"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
