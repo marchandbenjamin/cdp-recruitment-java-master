@@ -8,6 +8,7 @@ import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class EventService {
@@ -32,9 +33,23 @@ public class EventService {
 
     public List<Event> getFilteredEvents(String query) {
         List<Event> events = eventRepository.findAll();
-        // Filter the events list in pure JAVA here
+        List<Event> filteredEvents = events.stream()
+                .filter(event -> event.getBands().stream()
+                        .anyMatch(band -> band.getMembers().stream()
+                                .anyMatch(member -> member.getName().toLowerCase().contains(query.toLowerCase()))
+                        )
+                ).collect(Collectors.toList());
 
-        return events;
+        filteredEvents.forEach(event -> {
+            int bandCount = event.getBands().size();
+            event.setTitle(event.getTitle() + " [" + bandCount + "]");
+            event.getBands().forEach(band -> {
+                int memberCount = band.getMembers().size();
+                band.setName(band.getName() + " [" + memberCount + "]");
+            });
+        });
+
+        return filteredEvents;
     }
 
     public void updateEvent(Long id, Event newEventData) {
